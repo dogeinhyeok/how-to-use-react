@@ -1,0 +1,14 @@
+/* css를 사용하여 스타일 추가 */
+.logout {
+  color: wheat;
+  background-color: burlywood;
+  border-bottom: 5px solid green;
+}
+
+/* section 요소 사이의 여백을 위한 스타일 추가 */
+section {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
