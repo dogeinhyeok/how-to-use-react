@@ -8,6 +8,8 @@ import Register from "./section-01/chapter-06/Register";
 import HookExam from "./section-01/chapter-07/HookExam";
 import SimpleCounterApp from "./section-02/SimpleCounterApp";
 import TodoListApp from "./section-03/TodoListApp";
+import Exam from "./section-04/Exam";
+import EnhancedTodoListApp from "./section-04/EnhancedTodoListApp";
 
 const Main = () => {
   return (
@@ -23,7 +25,11 @@ const Main = () => {
       {/* Section 02 */}
       {/* <SimpleCounterApp /> */}
       {/* Section 03 */}
-      <TodoListApp />
+      {/* <TodoListApp /> */}
+      {/* Section 04 */}
+      {/* <Exam /> */}
+      <EnhancedTodoListApp />
+      {/* Section 05 */}
     </main>
   );
 };
