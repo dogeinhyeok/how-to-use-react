@@ -15,21 +15,20 @@ const Main = () => {
   return (
     <main>
       {/* Section 01 */}
-      {/* <Component />
+      <Component />
       <Rendering />
       <ButtonProps />
       <Counter />
       <Bulb />
       <Register />
-      <HookExam /> */}
+      <HookExam />
       {/* Section 02 */}
-      {/* <SimpleCounterApp /> */}
+      <SimpleCounterApp />
       {/* Section 03 */}
-      {/* <TodoListApp /> */}
+      <TodoListApp />
       {/* Section 04 */}
-      {/* <Exam /> */}
+      <Exam />
       <EnhancedTodoListApp />
-      {/* Section 05 */}
     </main>
   );
 };

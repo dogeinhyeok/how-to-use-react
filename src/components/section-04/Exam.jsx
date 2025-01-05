@@ -37,11 +37,11 @@ const Exam = () => {
   };
 
   return (
-    <div>
+    <section>
       <h1>{state}</h1>
       <button onClick={onClickPlus}>+</button>
       <button onClick={onClickMinus}>-</button>
-    </div>
+    </section>
   );
 };
 
