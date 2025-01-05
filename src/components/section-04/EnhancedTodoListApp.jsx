@@ -2,7 +2,7 @@ import Header from "./Header";
 import Editor from "./Editor";
 import List from "./List";
 import "./EnhancedTodoListApp.css";
-import { useRef, useReducer, useCallback } from "react";
+import { useRef, useReducer, useCallback, createContext, useMemo } from "react";
 
 const mockData = [
   {
@@ -44,6 +44,9 @@ function reducer(state, action) {
   }
 }
 
+export const TodoStateContext = createContext();
+export const TodoDispatchContext = createContext();
+
 const EnhancedTodoListApp = () => {
   const [todos, dispatch] = useReducer(reducer, mockData);
   const idRef = useRef(3);
@@ -71,13 +74,33 @@ const EnhancedTodoListApp = () => {
     dispatch({ type: "DELETE", data: targetId });
   }, []);
 
+  const memoizedDispatch = useMemo(
+    () => ({
+      onCreate,
+      onUpdate,
+      onDelete,
+    }),
+    [onCreate, onUpdate, onDelete]
+  );
+
   return (
     <section>
       <h2>Todo List App</h2>
       <div className="TodoListApp">
         <Header />
-        <Editor onCreate={onCreate} />
-        <List todos={todos} onUpdate={onUpdate} onDelete={onDelete} />
+        {/*
+         * TodoContext.Provider 설명
+         * -> Context API의 핵심 컴포넌트
+         * -> value prop으로 전달된 데이터를 자식 컴포넌트들과 공유
+         * -> 이를 통해 props drilling 문제 해결 가능
+         * -> 아래 예시에서는 { todos, onCreate, onUpdate, onDelete }를 자식들과 공유
+         */}
+        <TodoStateContext.Provider value={todos}>
+          <TodoDispatchContext.Provider value={memoizedDispatch}>
+            <Editor />
+            <List />
+          </TodoDispatchContext.Provider>
+        </TodoStateContext.Provider>
       </div>
     </section>
   );
